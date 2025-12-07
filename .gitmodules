@@ -1,0 +1,18 @@
+[submodule "3rdparty/mbedtls"]
+	path = 3rdparty/mbedtls
+	url = https://github.com/Mbed-TLS/mbedtls.git
+[submodule "CSerialPort"]
+	path = 3rdparty/CSerialPort
+	url = https://github.com/itas109/CSerialPort.git
+[submodule "hidapi"]
+	path = 3rdparty/hidapi
+	url = https://github.com/libusb/hidapi.git
+[submodule "libuv"]
+	path = 3rdparty/libuv
+	url = https://github.com/libuv/libuv.git
+[submodule "3rdparty/libwebsockets"]
+	path = 3rdparty/libwebsockets
+	url = https://github.com/warmcat/libwebsockets.git
+[submodule "3rdparty/simpleble"]
+	path = 3rdparty/simpleble
+	url = https://github.com/simpleble/simpleble.git
