@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.15)
 
 project(PeriCheck-Core LANGUAGES C CXX)
 
@@ -25,9 +25,12 @@ message(STATUS "------------------------------------------------------------ ")
 
 set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install CACHE PATH "Installation prefix")
 
+set(3RDPARTY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
+set(3RDPARTY_ZIP_PATH ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty-zip)
 set(PERICHECK_INSTALL_DIR ${CMAKE_BINARY_DIR}/install) 
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/external)
 include(libuv_external)
-include(mbedtls_external)
 include(libwebsockets_external)
+
+#add_dependencies(libwebsockets_external libuv_external mbedtls_external)

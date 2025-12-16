@@ -11,6 +11,7 @@
 [submodule "libuv"]
 	path = 3rdparty/libuv
 	url = https://github.com/libuv/libuv.git
+	branch = v1.x
 [submodule "libwebsockets"]
 	path = 3rdparty/libwebsockets
 	url = https://github.com/warmcat/libwebsockets.git

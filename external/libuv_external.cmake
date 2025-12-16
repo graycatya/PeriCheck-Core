@@ -4,10 +4,10 @@ include(ExternalProject)
 ExternalProject_Add(
     libuv_external
 
-    GIT_REPOSITORY    https://github.com/libuv/libuv.git
-    GIT_TAG           v1.x  
-    GIT_SHALLOW       TRUE
-    
+    # GIT_REPOSITORY    https://github.com/libuv/libuv.git
+    # GIT_TAG           v1.x  
+    # GIT_SHALLOW       TRUE
+    URL               ${3RDPARTY_ZIP_PATH}/libuv-1.x.zip
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/libuv-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/libuv-build
     INSTALL_DIR       ${PERICHECK_INSTALL_DIR}
@@ -31,7 +31,7 @@ ExternalProject_Add(
 set(LIBUV_INCLUDE_DIR ${PERICHECK_INSTALL_DIR}/include)
 
 if(WIN32)
-    set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/libuv.lib) 
+    set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/uv.lib)
 else()
-    set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/libuv.a)   
+    set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/uv.a)
 endif()

@@ -1,13 +1,35 @@
 include(ExternalProject)
 
+ExternalProject_Add(
+    mbedtls_unpack
+    URL ${3RDPARTY_ZIP_PATH}/mbedtls-mbedtls-3.6.5.zip
+    SOURCE_DIR ${CMAKE_BINARY_DIR}/mbedtls-src
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    UPDATE_COMMAND ""
+    LOG_DOWNLOAD ON
+)
+
+ExternalProject_Add(
+    mbedtls_framework_unpack
+    URL ${3RDPARTY_ZIP_PATH}/mbedtls-framework-875ec308e7ff34610075507b7216172ce8eb0785.zip         
+    SOURCE_DIR ${CMAKE_BINARY_DIR}/mbedtls-src/framework
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    UPDATE_COMMAND ""
+    DEPENDS mbedtls_unpack
+    LOG_DOWNLOAD ON
+)
 
 ExternalProject_Add(
     mbedtls_external
 
-    GIT_REPOSITORY    https://github.com/Mbed-TLS/mbedtls.git
-    GIT_TAG           mbedtls-3.6.5
-    GIT_SHALLOW       TRUE
-    
+    # GIT_REPOSITORY    https://github.com/Mbed-TLS/mbedtls.git
+    # GIT_TAG           mbedtls-3.6.5
+    # GIT_SHALLOW       TRUE
+    # URL               ${3RDPARTY_ZIP_PATH}/mbedtls-mbedtls-3.6.5.zip
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/mbedtls-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/mbedtls-build
     INSTALL_DIR       ${PERICHECK_INSTALL_DIR}
@@ -20,7 +42,7 @@ ExternalProject_Add(
     BUILD_COMMAND     ${CMAKE_COMMAND} --build <BINARY_DIR> --config ${CMAKE_BUILD_TYPE}
     
     UPDATE_COMMAND    ""
-    
+    DEPENDS mbedtls_unpack mbedtls_framework_unpack
     LOG_DOWNLOAD      ON
     LOG_CONFIGURE     ON
     LOG_BUILD         ON
