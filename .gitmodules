@@ -1,7 +1,7 @@
 [submodule "mbedtls"]
 	path = 3rdparty/mbedtls
 	url = https://github.com/Mbed-TLS/mbedtls.git
-	branch = mbedtls-3.6
+	branch = mbedtls-3.6.5
 [submodule "CSerialPort"]
 	path = 3rdparty/CSerialPort
 	url = https://github.com/itas109/CSerialPort.git

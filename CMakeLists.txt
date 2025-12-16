@@ -18,21 +18,16 @@ message(STATUS " .. System name ................. = ${CMAKE_SYSTEM}"          )
 message(STATUS " .. C++ compiler ................ = ${CMAKE_CXX_COMPILER}"    )
 message(STATUS " .. C compiler .................. = ${CMAKE_C_COMPILER}"      )
 message(STATUS " .. size(void*) ................. = ${CMAKE_SIZEOF_VOID_P}"   )
+message(STATUS " .. cmake build type ................. = ${CMAKE_BUILD_TYPE}")
 message(STATUS " .. cmake current source ................. = ${CMAKE_CURRENT_SOURCE_DIR}")
 message(STATUS " .. cmake system name ................. = ${CMAKE_SYSTEM_NAME}")
 message(STATUS "------------------------------------------------------------ ")
 
+set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install CACHE PATH "Installation prefix")
 
+set(PERICHECK_INSTALL_DIR ${CMAKE_BINARY_DIR}/install) 
 
-set(3RDPARTY
-    #libuv
-    mbedtls
-    #libwebsockets
-    #CSerialPort
-    #simpleble
-    #hidapi
-)
-
-foreach(3rdparty_module ${3RDPARTY})
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/${3rdparty_module})
-endforeach(3rdparty_module ${3RDPARTY})
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/external)
+include(libuv_external)
+include(mbedtls_external)
+include(libwebsockets_external)
