@@ -31,6 +31,6 @@ set(PERICHECK_INSTALL_DIR ${CMAKE_BINARY_DIR}/install)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/external)
 include(libuv_external)
-include(libwebsockets_external)
+include(openssl_external)
 
 #add_dependencies(libwebsockets_external libuv_external mbedtls_external)
