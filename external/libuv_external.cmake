@@ -1,6 +1,6 @@
 include(ExternalProject)
 
-
+set(CMAKE_SUPPRESS_DEVELOPER_WARNINGS ON CACHE BOOL "Suppress CMake developer warnings" FORCE)
 ExternalProject_Add(
     libuv_external
 
@@ -16,7 +16,7 @@ ExternalProject_Add(
         -DCMAKE_INSTALL_PREFIX=${PERICHECK_INSTALL_DIR}
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DLIBUV_BUILD_TESTS=OFF 
-        
+
     BUILD_COMMAND     ${CMAKE_COMMAND} --build <BINARY_DIR> --config ${CMAKE_BUILD_TYPE}
     
     UPDATE_COMMAND    ""
@@ -25,6 +25,7 @@ ExternalProject_Add(
     LOG_CONFIGURE     ON
     LOG_BUILD         ON
     LOG_INSTALL       ON
+
 )
 
 
@@ -35,3 +36,5 @@ if(WIN32)
 else()
     set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/uv.a)
 endif()
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/libuv_Interface)

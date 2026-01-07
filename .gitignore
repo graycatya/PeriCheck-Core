@@ -34,3 +34,4 @@
 build/
 *.vs/
 *.user
+3rdparty/
