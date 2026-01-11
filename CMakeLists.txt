@@ -62,7 +62,7 @@ foreach(3RDPARTY ${3RDPARTY_ZIPS})
         if(${3RDPARTY} STREQUAL "uSockets-0.8.8")
             add_subdirectory(${BUILDSCRIPTS_PATH}/uSockets)
         elseif(${3RDPARTY} STREQUAL "uWebSockets-20.74.0")
-            #add_subdirectory(${BUILDSCRIPTS_PATH}/uWebSockets_Interface)
+            add_subdirectory(${BUILDSCRIPTS_PATH}/uWebSockets_Interface)
         endif()
     else()
         #message("build project: " ${3RDPARTY})
@@ -77,7 +77,7 @@ endforeach(3RDPARTY)
 # include(libdeflate_external)
 # include(uWebSockets_external)
 
-# add_subdirectory(unit_tests)
+add_subdirectory(unit_tests)
 
 
 #add_dependencies(libwebsockets_external libuv_external mbedtls_external)

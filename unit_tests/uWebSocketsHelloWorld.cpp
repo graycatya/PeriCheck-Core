@@ -4,7 +4,7 @@
 
 int main() {
     /* Overly simple hello world app */
-    uWS::SSLApp({
+    uWS::App({
       .key_file_name = "misc/key.pem",
       .cert_file_name = "misc/cert.pem",
       .passphrase = "1234"

@@ -1,15 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(uWebSockets LANGUAGES C)
+set(LIB_PROJECT_VERSION "20.74.0")
+set(LIB_PROJECT_NAME "uWebSockets")
+project(${LIB_PROJECT_NAME}-${LIB_PROJECT_VERSION} LANGUAGES C)
 
+file(GLOB_RECURSE PROJECT_HEADERS ${3RDPARTY_PATH}/${PROJECT_NAME}/src/*.h ${3RDPARTY_PATH}/${PROJECT_NAME}/src/*.hpp)
 
-add_library(${PROJECT_NAME} INTERFACE)
-target_compile_definitions(${PROJECT_NAME} INTERFACE
+add_library(${LIB_PROJECT_NAME} INTERFACE ${PROJECT_HEADERS})
+target_compile_definitions(${LIB_PROJECT_NAME} INTERFACE
     UWS_NO_ZLIB
     UWS_USE_LIBDEFLATE
     USE_OPENSSL
 )
-target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-src/src)
-target_link_libraries(${PROJECT_NAME} INTERFACE libdeflate uSockets OpenSSL libuv)
-
-add_dependencies(${PROJECT_NAME} uWebSockets_external libuv_external libdeflate_external uSockets_external openssl_external)
+message("uWebSockets: " ${3RDPARTY_PATH}/${PROJECT_NAME})
+target_include_directories(${LIB_PROJECT_NAME} INTERFACE ${3RDPARTY_PATH}/${PROJECT_NAME}/src)
+target_link_libraries(${LIB_PROJECT_NAME} INTERFACE libdeflate_shared uSockets uv ssl crypto)
