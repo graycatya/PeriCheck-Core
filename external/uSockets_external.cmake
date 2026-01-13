@@ -43,4 +43,4 @@ else()
     set(USOCKETS_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/uSockets.a)
 endif()
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/uSockets_Interface)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/uSockets_Interface)

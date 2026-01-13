@@ -37,4 +37,4 @@ else()
     set(LIBUV_LIBRARY ${PERICHECK_INSTALL_DIR}/lib/uv.a)
 endif()
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/libuv_Interface)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/libuv_Interface)
