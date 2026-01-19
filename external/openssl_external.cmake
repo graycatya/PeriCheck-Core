@@ -48,4 +48,4 @@ else()
 endif()
 
 
-#add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/openssl_Interface)
+add_subdirectory(${CMAKE_SOURCE_DIR}/buildscripts/openssl_Interface)
